@@ -1,17 +1,16 @@
 import React from 'react';
 import Home from './Home';
-import Country from './Country';
 import Summary from './Summary';
 import './App.css';
-import { Route, Link } from 'react-router-dom';
-import NavBar from './NavBar';
+import { Route } from 'react-router-dom';
+import { UserForm } from './components/UserForm';
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
+      {/* <NavBar /> */}
+      <UserForm />
       <Route exact path="/" component={Home} />
-      <Route exact path="/country" component={Country} />
       <Route exact path="/summary" component={Summary}/>
 
 </div>
