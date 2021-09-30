@@ -12,12 +12,20 @@ export class Summary extends Component {
   state = {
     isLoading1: false,
     isLoading2: false,
-    country1data: 100,
-    country2data: 100
+    country1data: null,
+    country2data: null
   }
-  continue = e => {
+
+  reset = e => {
     e.preventDefault();
+    this.setState({isLoading1: false});
+    this.setState({isLoading2: false});
     this.props.resetStep();
+  }
+
+  back = e => {
+    e.preventDefault();
+    this.props.prevStep();
   }
 
   componentDidMount() {
@@ -68,8 +76,6 @@ export class Summary extends Component {
                   <Typography variant="body2" color="text.secondary">
                   Confirmed Cases : {country1data.confirmed}
                   <br/>
-                  Recovered Cases :{country1data.recovered}
-                  <br/>
                   Deaths :{country1data.deaths}
                   <br/>
                   Population :{country1data.population}
@@ -78,9 +84,9 @@ export class Summary extends Component {
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Button size="small" color="primary" >
+              {/* <Button size="small" color="primary" >
                 Change Country
-              </Button>
+              </Button> */}
             </CardActions>
           </Card>
 
@@ -94,8 +100,6 @@ export class Summary extends Component {
                   <Typography variant="body2" color="text.secondary">
                   Confirmed Cases : {country2data.confirmed}
                   <br/>
-                  Recovered Cases :{country2data.recovered}
-                  <br/>
                   Deaths :{country2data.deaths}
                   <br/>
                   Population :{country2data.population}
@@ -104,9 +108,9 @@ export class Summary extends Component {
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Button size="small" color="primary" >
+              {/* <Button size="small" color="primary" onClick={this.back}>
                 Change Country
-              </Button>
+              </Button> */}
             </CardActions>
           </Card>
 
@@ -115,7 +119,7 @@ export class Summary extends Component {
             label="Reset"
             primary={true}
             style={styles.button}
-            onClick={this.continue}
+            onClick={this.reset}
             >Reset
           </Button>
       </React.Fragment>

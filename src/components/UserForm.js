@@ -77,6 +77,7 @@ export class UserForm extends Component {
         return (
           <Summary
             resetStep = {this.resetStep}
+            prevStep = {this.prevStep}
             handleChange = {this.handleChange}
             values={values}
           />
