@@ -4,8 +4,9 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 
 test('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  render(<App />);
+  const textElement = screen.getByText(/country/i);
+  expect(textElement).toBeInTheDocument();
 });
 
 // test('renders learn react link', () => {
