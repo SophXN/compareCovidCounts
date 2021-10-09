@@ -4,8 +4,8 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import countries from '../countrydata';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
 import Button from '@mui/material/Button';
+import NavBar from './NavBar';
 
 export class Country extends Component {
   state = {
@@ -38,7 +38,26 @@ export class Country extends Component {
     return (
       <MuiThemeProvider>
         <React.Fragment>
-          <AppBar title="Compare COVID 19 Data Between Countries" />
+          <NavBar />
+          {/* <AppBar
+            title="Compare COVID 19 Data Between Countries"
+            >
+          <Toolbar>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+            >
+              {/* <MenuIcon />
+              </IconButton>
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                Premise Data Group
+              </Typography>
+              <Button color="inherit">Login</Button>
+            </Toolbar>
+          </AppBar> */}
 
           <div style={styles.text}>Select First Country</div>
           <Autocomplete

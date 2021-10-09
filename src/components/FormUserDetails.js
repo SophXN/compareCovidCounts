@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
+import Typography from '@mui/material/Typography';
 import TextField from 'material-ui/TextField';
 import Button from '@mui/material/Button';
+import NavBar from './NavBar';
 
 export class FormUserDetails extends Component {
   continue = e => {
@@ -23,9 +24,11 @@ export class FormUserDetails extends Component {
     return (
       <MuiThemeProvider>
         <React.Fragment>
-          <AppBar title="Compare COVID 19 Data Between Countries" />
+          <NavBar />
 
-          <div style={styles.text}>If you'd like this data emailed to you, please fill out this contact form. Otherwise, you may simply continue.</div>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={styles.text}>
+          If you'd like this data emailed to you, please fill out this contact form. Otherwise, you may simply continue.
+          </Typography>
 
           <TextField
             hintText="Enter your First Name"
@@ -34,7 +37,6 @@ export class FormUserDetails extends Component {
             defaultValue={values.firstName}
             />
             <br/>
-
           <TextField
             hintText="Enter your Last Name"
             floatingLabelText="Last Name"
@@ -42,7 +44,6 @@ export class FormUserDetails extends Component {
             defaultValue={values.lastName}
             />
             <br/>
-
           <TextField
             hintText="Enter your Email"
             floatingLabelText="Email"
@@ -50,7 +51,6 @@ export class FormUserDetails extends Component {
             defaultValue={values.email}
             />
             <br/>
-
           <TextField
             hintText="Enter your Company"
             floatingLabelText="Company"

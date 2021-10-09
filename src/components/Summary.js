@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
+import NavBar from './NavBar';
 
 export class Summary extends Component {
   state = {
@@ -62,7 +63,7 @@ export class Summary extends Component {
     return (
       <MuiThemeProvider>
         <React.Fragment>
-          <AppBar title="Compare COVID 19 Data Between Countries" />
+          <NavBar />
 
           <div style={styles.text}>COVID 19 Data Comparison</div>
 
