@@ -10,8 +10,8 @@ import MenuItem from '@mui/material/MenuItem';
 
 
 const NavBar = () => {
-  const [anchorE1, setaAnchorE1] = React.useState(null);
-  const open = Boolean(anchorE1);
+  const [anchore1, setaAnchorE1] = React.useState(null);
+  const open = Boolean(anchore1);
 
   const handleMenu = e => {
     setaAnchorE1(e.currentTarget);
@@ -36,7 +36,7 @@ const NavBar = () => {
           </IconButton>
           <Menu
             id="navbar"
-            anchorE1={anchorE1}
+            anchore1={anchore1}
             anchorOrigin={{
               vertical: "top",
               horizontal: "left"

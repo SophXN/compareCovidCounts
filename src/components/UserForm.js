@@ -12,7 +12,9 @@ export class UserForm extends Component {
     company: '',
     email: '',
     country1: 'Country',
-    country2: 'Country'
+    country1code: '',
+    country2: 'Country',
+    country2code: '',
   }
 
   nextStep = () => {
@@ -37,7 +39,9 @@ export class UserForm extends Component {
       company: '',
       email: '',
       country1: 'Country',
-      country2: 'Country'
+      country1code: '',
+      country2: 'Country',
+      country2code: '',
     })
   }
 
@@ -45,21 +49,34 @@ export class UserForm extends Component {
     this.setState({[input]: e.target.value});
   }
 
-  handleCountryChange = input => e => {
-    this.setState({[input]: e.target.innerHTML});
+  handleCountry1Change = (e, input) => {
+    if(typeof input === 'undefined'){
+      return
+    }
+    this.setState({country1: input.name});
+    this.setState({country1code: input.code});
+  }
+
+  handleCountry2Change = (e, input) => {
+    if(typeof input === 'undefined'){
+      return
+    }
+    this.setState({country2: input.name});
+    this.setState({country2code: input.code});
   }
 
   render() {
     const { step } = this.state;
-    const { firstName, lastName, email, company, country1, country2 } = this.state;
-    const values = { firstName, lastName, email, company, country1, country2 };
+    const { firstName, lastName, email, company, country1, country2, country1code, country2code } = this.state;
+    const values = { firstName, lastName, email, company, country1, country2, country1code, country2code };
 
     switch(step) {
       case 1:
         return (
           <Country
             nextStep = {this.nextStep}
-            handleChange = {this.handleCountryChange}
+            handleCountry1Change = {this.handleCountry1Change}
+            handleCountry2Change = {this.handleCountry2Change}
             values={values}
           />
 

@@ -2,14 +2,15 @@ import * as React from 'react';
 import { Component } from 'react'
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import countries from '../countrydata';
+import countries from '../countrydata2';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Button from '@mui/material/Button';
 import NavBar from './NavBar';
 
 export class Country extends Component {
   state = {
-    validation: ''
+    validation: '',
+    value: {}
   }
 
   checkCountries = () => {
@@ -33,31 +34,12 @@ export class Country extends Component {
 
 
   render() {
-    const { handleChange } = this.props;
+    const { handleCountry1Change, handleCountry2Change } = this.props;
 
     return (
       <MuiThemeProvider>
         <React.Fragment>
           <NavBar />
-          {/* <AppBar
-            title="Compare COVID 19 Data Between Countries"
-            >
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              {/* <MenuIcon />
-              </IconButton>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                Premise Data Group
-              </Typography>
-              <Button color="inherit">Login</Button>
-            </Toolbar>
-          </AppBar> */}
 
           <div style={styles.text}>Select First Country</div>
           <Autocomplete
@@ -65,8 +47,9 @@ export class Country extends Component {
           id="combo-box-demo"
           style={styles.dropdown}
           options={countries}
-          onChange={handleChange('country1')}
-          // value={values.country1}
+          onChange={(e, newValue) => {
+            handleCountry1Change(e, newValue);
+          }}
           getOptionLabel={(option) => {
             if (option.hasOwnProperty('name')) {
               return option.name;
@@ -85,7 +68,9 @@ export class Country extends Component {
           id="combo-box-demo"
           style={styles.dropdown}
           options={countries}
-          onChange={handleChange('country2')}
+          onChange={(e, newValue) => {
+            handleCountry2Change(e, newValue);
+          }}
           getOptionLabel={(option) => {
             if (option.hasOwnProperty('name')) {
               return option.name;

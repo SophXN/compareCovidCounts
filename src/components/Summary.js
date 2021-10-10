@@ -2,11 +2,10 @@ import * as React from 'react';
 import { Component } from 'react'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-// import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
+
 import NavBar from './NavBar';
 
 export class Summary extends Component {
@@ -30,13 +29,13 @@ export class Summary extends Component {
   }
 
   componentDidMount() {
-    const { country1, country2 } = this.props.values;
+    const { country1code, country2code } = this.props.values;
     let headersList = {
       "Accept": "*/*",
       "User-Agent": "Thunder Client (https://www.thunderclient.io)"
      }
 
-     fetch(`https://covid-api.mmediagroup.fr/v1/cases?country=${country1}`, {
+     fetch(`https://covid-api.mmediagroup.fr/v1/cases?ab=${country1code}`, {
        method: "GET",
        headers: headersList
      }).then((response) => {
@@ -46,7 +45,7 @@ export class Summary extends Component {
        this.setState({isLoading1: true});
      }).catch(err => console.log(err));
 
-     fetch(`https://covid-api.mmediagroup.fr/v1/cases?country=${country2}`, {
+     fetch(`https://covid-api.mmediagroup.fr/v1/cases?ab=${country2code}`, {
        method: "GET",
        headers: headersList
      }).then((response) => {
@@ -90,6 +89,9 @@ export class Summary extends Component {
               </Button> */}
             </CardActions>
           </Card>
+          <br/>
+          <br/>
+
 
           <Card sx={{ maxWidth: 345 }} style={styles.card}>
             <CardActionArea>
@@ -135,7 +137,7 @@ const styles = {
   card: {
     margin: '0 auto',
     display: 'flex',
-    padding: 15
+    padding: '1.5em'
   },
   text: {
     margin: 15
