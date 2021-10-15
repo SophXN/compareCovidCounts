@@ -1,10 +1,7 @@
-# Getting Started with Create React App
+# Covid 19 Data Comparer
+User can select two separate countries to compare current COVID 19 statistics such as case counts and death.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
+Data is fetched from the following API: https://mmediagroup.fr/covid-19
 
 ### `npm start`
 
